@@ -16,7 +16,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0;
   }
 
   .logo {
@@ -32,10 +31,10 @@
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
-    max-width: 720px;
+    max-width: 960px;
     padding: 0 24px;
   }
 
@@ -43,10 +42,10 @@
     background: #161b22;
     border: 1px solid #21262d;
     border-radius: 14px;
-    padding: 32px 28px;
+    padding: 28px 24px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     transition: border-color .2s, transform .2s;
   }
 
@@ -56,22 +55,29 @@
   }
 
   .card-name {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #e6edf3;
+  }
+
+  .card-sub {
+    font-size: 11px;
+    color: #58a6ff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .card-desc {
     font-size: 13px;
     color: #8b949e;
-    line-height: 1.65;
+    line-height: 1.6;
     flex: 1;
   }
 
   .enter-btn {
     display: block;
-    margin-top: 8px;
-    padding: 11px 0;
+    margin-top: 10px;
+    padding: 10px 0;
     background: #21262d;
     border: 1px solid #30363d;
     border-radius: 8px;
@@ -89,7 +95,7 @@
     color: #fff;
   }
 
-  @media (max-width: 560px) {
+  @media (max-width: 700px) {
     .grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -102,18 +108,23 @@
 
   <div class="card">
     <div class="card-name">ORDO AI</div>
-    <p class="card-desc">
-      RAG-поиск туров, чат-бот, система бронирования и GPS-трекинг туристов в реальном времени.
-    </p>
-    <a class="enter-btn" href="http://localhost:5050" target="_blank">Войти</a>
+    <div class="card-sub">RAG · Туры</div>
+    <p class="card-desc">Поиск туров через чат, система бронирования и маршрутизация.</p>
+    <a class="enter-btn" href="__AI_URL__" target="_blank">Войти</a>
   </div>
 
   <div class="card">
-    <div class="card-name">ORDO TRACKING</div>
-    <p class="card-desc">
-      Управление компаниями, водителями, гидами, отелями, активностями и бронированиями.
-    </p>
-    <a class="enter-btn" href="http://localhost:8001" target="_blank">Войти</a>
+    <div class="card-name">ORDO AI Tracking</div>
+    <div class="card-sub">GPS · Реальное время</div>
+    <p class="card-desc">GPS-трекинг туристов, сессии, вебсокеты, кошелёк.</p>
+    <a class="enter-btn" href="__GPS_URL__" target="_blank">Войти</a>
+  </div>
+
+  <div class="card">
+    <div class="card-name">ORDO</div>
+    <div class="card-sub">CRM · Бэкенд</div>
+    <p class="card-desc">Компании, водители, гиды, отели, активности, бронирования.</p>
+    <a class="enter-btn" href="__TRACKING_URL__" target="_blank">Войти</a>
   </div>
 
 </div>
