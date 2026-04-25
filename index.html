@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ORDO Platform</title>
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -57,7 +58,6 @@
   .card-name {
     font-size: 16px;
     font-weight: 700;
-    color: #e6edf3;
   }
 
   .card-sub {
@@ -75,7 +75,6 @@
   }
 
   .enter-btn {
-    display: block;
     margin-top: 10px;
     padding: 10px 0;
     background: #21262d;
@@ -84,9 +83,9 @@
     color: #e6edf3;
     font-size: 14px;
     font-weight: 600;
-    text-decoration: none;
     text-align: center;
-    transition: background .15s, border-color .15s, color .15s;
+    cursor: pointer;
+    transition: all .15s;
   }
 
   .enter-btn:hover {
@@ -100,6 +99,7 @@
   }
 </style>
 </head>
+
 <body>
 
 <div class="logo">ORDO <span>Platform</span></div>
@@ -110,24 +110,51 @@
     <div class="card-name">ORDO AI</div>
     <div class="card-sub">RAG · Туры</div>
     <p class="card-desc">Поиск туров через чат, система бронирования и маршрутизация.</p>
-    <a class="enter-btn" href="https://taxi-armor-ken-excess.trycloudflare.com" target="_blank">Войти</a>
+    <div class="enter-btn" onclick="go('ai')">Войти</div>
   </div>
 
   <div class="card">
     <div class="card-name">ORDO AI Tracking</div>
     <div class="card-sub">GPS · Реальное время</div>
     <p class="card-desc">GPS-трекинг туристов, сессии, вебсокеты, кошелёк.</p>
-    <a class="enter-btn" href="https://outreach-trainers-cursor-harrison.trycloudflare.com" target="_blank">Войти</a>
+    <div class="enter-btn" onclick="go('tracking')">Войти</div>
   </div>
 
   <div class="card">
     <div class="card-name">ORDO</div>
     <div class="card-sub">CRM · Бэкенд</div>
     <p class="card-desc">Компании, водители, гиды, отели, активности, бронирования.</p>
-    <a class="enter-btn" href="https://burke-commands-barnes-residents.trycloudflare.com" target="_blank">Войти</a>
+    <div class="enter-btn" onclick="go('crm')">Войти</div>
   </div>
 
 </div>
+
+<script>
+const routes = {
+  ai: "https://taxi-armor-ken-excess.trycloudflare.com",
+  tracking: "https://outreach-trainers-cursor-harrison.trycloudflare.com",
+  crm: "https://burke-commands-barnes-residents.trycloudflare.com"
+};
+
+// кнопки
+function go(type) {
+  console.log("Redirect to:", type);
+  window.location.href = routes[type];
+}
+
+// авто-роутинг по URL (если зайдешь напрямую)
+const pathRoutes = {
+  "/ai": routes.ai,
+  "/tracking": routes.tracking,
+  "/crm": routes.crm
+};
+
+const path = window.location.pathname;
+
+if (pathRoutes[path]) {
+  window.location.href = pathRoutes[path];
+}
+</script>
 
 </body>
 </html>
